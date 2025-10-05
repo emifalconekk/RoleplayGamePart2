@@ -1,12 +1,7 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Helmet
+public class Helmet : IDefense
 {
-    public int DefenseValue
-    {
-        get
-        {
-            return 18;
-        }
-    }
+    public int DefenseValue => 18;
+    
 }
