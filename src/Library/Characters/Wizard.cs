@@ -1,6 +1,7 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Wizard : ICharacter
+public class 
+    Wizard : ICharacter
 {
     private int health = 100;
 
