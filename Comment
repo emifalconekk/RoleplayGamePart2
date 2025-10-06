@@ -1,0 +1,15 @@
+Agregamos las Interfaces 
+
+ICharacter 
+Que define el contrato comun entre los personajes
+
+IAttack
+Marca todo objeto que hace daño
+
+IDefense 
+Marca todo objeto que aporta defensa
+
+IMagical
+Marca todos los items magicos
+
+les dimos a diferntes clases un nombre en comun para poder tratarlas de manera generica 
