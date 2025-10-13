@@ -29,9 +29,9 @@ public class Dwarf : ICharacter
             int value = 0;
             foreach (IItem item in this.items)
             {
-                if (item is IAttackItem)
+                if (item is IAttack)
                 {
-                    value += (item as IAttackItem).AttackValue;
+                    value += (item as IAttack).AttackValue;
                 }
             }
 
@@ -46,9 +46,9 @@ public class Dwarf : ICharacter
             int value = 0;
             foreach (IItem item in this.items)
             {
-                if (item is IDefenseItem)
+                if (item is IDefense)
                 {
-                    value += (item as IDefenseItem).DefenseValue;
+                    value += (item as IDefense).DefenseValue;
                 }
             }
 
@@ -88,6 +88,6 @@ public class Dwarf : ICharacter
 
     public void RemoveItem(IItem item)
     {
-        this,items.Remove(item);
+        this.items.Remove(item);
     }
 }

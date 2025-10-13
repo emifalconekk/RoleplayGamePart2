@@ -4,7 +4,6 @@ public interface ICharacter
 {
     string Name { get; }
     int Health { get; }
- 
     int AttackValue { get; }
 
     int DefenseValue { get; }
