@@ -3,10 +3,14 @@ namespace Ucu.Poo.RoleplayGame;
 public class Archer : ICharacter
 {
     private int health = 100;
+    
+    private List<IItem> items = new List<IItem>();
 
     public Archer(string name)
     {
         this.Name = name;
+        this.AddItem(new Bow());
+        this.AddItem(new Helmet());
     }
 
     public string Name { get; set; }
@@ -19,7 +23,16 @@ public class Archer : ICharacter
     {
         get
         {
-            return Bow.AttackValue;
+            int value = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item is IAttackItem)
+                {
+                    value += (item as IAttackItem).AttackValue;
+                }
+            }
+
+            return value;
         }
     }
 
@@ -27,7 +40,16 @@ public class Archer : ICharacter
     {
         get
         {
-            return Helmet.DefenseValue;
+            int value = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item is IDefenseItem)
+                {
+                    value += (item as IDefenseItem).DefenseValue;
+                }
+            }
+
+            return value;
         }
     }
 
@@ -54,5 +76,15 @@ public class Archer : ICharacter
     public void Cure()
     {
         this.Health = 100;
+    }
+    
+    public void AddItem(IItem item)
+    {
+        this.items.Add(item);
+    }
+
+    public void RemoveItem(IItem item)
+    {
+        this.items.Remove(item);
     }
 }

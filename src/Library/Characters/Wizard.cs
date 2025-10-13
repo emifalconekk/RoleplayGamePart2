@@ -1,13 +1,16 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class 
-    Wizard : ICharacter
+public class Wizard : ICharacter
 {
     private int health = 100;
+    
+    private List<IItem> items = new List<IItem>();
 
     public Wizard(string name)
     {
         this.Name = name;
+        
+        this.AddItem(new Staff());
     }
 
     public string Name { get; set; }
@@ -20,7 +23,16 @@ public class
     {
         get
         {
-            return SpellsBook.AttackValue + Staff.AttackValue;
+            int value = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item is IAttackItem)
+                {
+                    value += (item as IAttackItem).AttackValue;
+                }
+            }
+
+            return value;
         }
     }
 
@@ -28,7 +40,16 @@ public class
     {
         get
         {
-            return SpellsBook.DefenseValue + Staff.DefenseValue;
+            int value = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item is IDefenseItem)
+                {
+                    value += (item as IDefenseItem).DefenseValue;
+                }
+            }
+
+            return value;
         }
     }
 
@@ -55,5 +76,25 @@ public class
     public void Cure()
     {
         this.Health = 100;
+    }
+    
+    public void AddItem(IItem item)
+    {
+        this.items.Add(item);
+    }
+
+    public void RemoveItem(IItem item)
+    {
+        this.items.Remove(item);
+    }
+
+    public void AddItem(IMagicalItem item)
+    {
+        this.magicalItems.Add(item);
+    }
+
+    public void RemoveItem(IMagicalItem item)
+    {
+        this.magicalItems.Remove(item);
     }
 }

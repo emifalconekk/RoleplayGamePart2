@@ -4,9 +4,14 @@ public class Dwarf : ICharacter
 {
     private int health = 100;
 
+    private List<IItem> items = new List<IItem>();
+
     public Dwarf(string name)
     {
         this.Name = name;
+
+        this.AddItem(new Axe());
+        this.AddItem(new Helmet());
     }
 
     public string Name { get; set; }
@@ -21,7 +26,16 @@ public class Dwarf : ICharacter
     {
         get
         {
-            return Axe.AttackValue;
+            int value = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item is IAttackItem)
+                {
+                    value += (item as IAttackItem).AttackValue;
+                }
+            }
+
+            return value;
         }
     }
 
@@ -29,7 +43,16 @@ public class Dwarf : ICharacter
     {
         get
         {
-            return Shield.DefenseValue + Helmet.DefenseValue;
+            int value = 0;
+            foreach (IItem item in this.items)
+            {
+                if (item is IDefenseItem)
+                {
+                    value += (item as IDefenseItem).DefenseValue;
+                }
+            }
+
+            return value;
         }
     }
 
@@ -56,5 +79,15 @@ public class Dwarf : ICharacter
     public void Cure()
     {
         this.Health = 100;
+    }
+
+    public void AddItem(IItem item)
+    {
+        this.items.Add(item);
+    }
+
+    public void RemoveItem(IItem item)
+    {
+        this,items.Remove(item);
     }
 }
