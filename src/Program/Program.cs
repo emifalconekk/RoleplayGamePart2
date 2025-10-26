@@ -12,6 +12,10 @@ gimli.Axe = new Axe();
 gimli.Helmet = new Helmet();
 gimli.Shield = new Shield();
 
+Archer apollo = new Archer("Apollo", "Heroe");
+apollo.Bow = new Bow();
+apollo.Helmet = new Helmet();
+
 Archer robin = new Archer("Robin", "Villano");
 robin.Bow = new Bow();
 robin.Helmet = new Helmet();
@@ -20,6 +24,10 @@ Knight garen = new Knight("Garen", "Villano");
 garen.Sword = new Sword();
 garen.Shield = new Shield();
 garen.Armor = new Armor();
+
+Wizard merlin = new Wizard("Merlin", "Villano");
+merlin.Staff = new Staff();
+merlin.SpellsBook = book;
 
 
 Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
