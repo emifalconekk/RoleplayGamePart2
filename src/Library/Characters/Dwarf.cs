@@ -6,17 +6,21 @@ public class Dwarf : ICharacter
 
     private List<IItem> items = new List<IItem>();
 
-    public Dwarf(string name)
+    public Dwarf(string name, string role)
     {
         this.Name = name;
-
+        this.Role = role;
         this.AddItem(new Axe());
         this.AddItem(new Helmet());
     }
 
     public string Name { get; set; }
 
-    public Axe Axe { get; set; }
+    public string Role { get; }
+    
+    public int VP { get; set; }
+    
+public Axe Axe { get; set; }
 
     public Shield Shield { get; set; }
 

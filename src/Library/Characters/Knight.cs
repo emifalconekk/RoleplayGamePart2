@@ -6,11 +6,10 @@ public class Knight : ICharacter
     
     private List<IItem> items = new List<IItem>();
 
-    public Knight(string name)
+    public Knight(string name , string role)
     {
         this.Name = name;
-        
-        
+        this.Role = role;
         this.AddItem(new Sword());
         this.AddItem(new Armor());
         this.AddItem(new Shield());
@@ -18,6 +17,10 @@ public class Knight : ICharacter
 
     public string Name { get; set; }
 
+    public string Role { get; }
+    
+    public int VP { get; set; }
+    
     public Sword Sword { get; set; }
 
     public Shield Shield { get; set; }

@@ -6,15 +6,20 @@ public class Wizard : ICharacter
     
     private List<IItem> items = new List<IItem>();
 
-    public Wizard(string name)
+    private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
+
+    public Wizard(string name, string role)
     {
         this.Name = name;
-        
+        this.Role = role;
         this.AddItem(new Staff());
     }
 
     public string Name { get; set; }
 
+    public string Role { get; }
+    
+    public int VP { get; set; }
     public SpellsBook SpellsBook { get; set; }
 
     public Staff Staff { get; set; }
