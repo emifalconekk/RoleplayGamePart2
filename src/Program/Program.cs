@@ -12,6 +12,11 @@ gimli.Axe = new Axe();
 gimli.Helmet = new Helmet();
 gimli.Shield = new Shield();
 
+Knight MegaKnight = new Knight("MegaKnight", "Heroe");
+MegaKnight.Sword = new Sword();
+MegaKnight.Armor= new Armor();
+MegaKnight.Shield = new Shield();
+
 Archer apollo = new Archer("Apollo", "Heroe");
 apollo.Bow = new Bow();
 apollo.Helmet = new Helmet();
@@ -24,6 +29,9 @@ Knight garen = new Knight("Garen", "Villano");
 garen.Sword = new Sword();
 garen.Shield = new Shield();
 garen.Armor = new Armor();
+
+Dwarf Grimble = new Dwarf("Grimble", "Villano");
+Grimble.Axe = new Axe();
 
 Wizard merlin = new Wizard("Merlin", "Villano");
 merlin.Staff = new Staff();
