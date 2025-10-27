@@ -6,10 +6,11 @@ public class Knight : ICharacter
     
     private List<IItem> items = new List<IItem>();
 
-    public Knight(string name , string role)
+    public Knight(string name , string role, int vp = 0)
     {
         this.Name = name;
         this.Role = role;
+        this.VP = vp;
         this.AddItem(new Sword());
         this.AddItem(new Armor());
         this.AddItem(new Shield());
@@ -78,6 +79,10 @@ public class Knight : ICharacter
         if (this.DefenseValue < power)
         {
             this.Health -= power - this.DefenseValue;
+        }
+        else
+        {
+            this.health -= 1;
         }
     }
 

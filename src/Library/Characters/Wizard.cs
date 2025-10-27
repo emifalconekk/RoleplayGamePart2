@@ -8,10 +8,11 @@ public class Wizard : ICharacter
 
     private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
 
-    public Wizard(string name, string role)
+    public Wizard(string name, string role, int vp = 0)
     {
         this.Name = name;
         this.Role = role;
+        this.VP = vp;
         this.AddItem(new Staff());
     }
 
@@ -20,6 +21,7 @@ public class Wizard : ICharacter
     public string Role { get; }
     
     public int VP { get; set; }
+    
     public SpellsBook SpellsBook { get; set; }
 
     public Staff Staff { get; set; }
@@ -75,6 +77,10 @@ public class Wizard : ICharacter
         if (this.DefenseValue < power)
         {
             this.Health -= power - this.DefenseValue;
+        }
+        else
+        {
+            this.health -= 1;
         }
     }
 

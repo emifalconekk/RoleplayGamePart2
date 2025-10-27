@@ -1,4 +1,5 @@
-﻿using Ucu.Poo.RoleplayGame;
+﻿using Library;
+using Ucu.Poo.RoleplayGame;
 
 SpellsBook book = new SpellsBook();
 book.Spells = new Spell[]{ new Spell() };
@@ -21,31 +22,34 @@ Archer apollo = new Archer("Apollo", "Heroe");
 apollo.Bow = new Bow();
 apollo.Helmet = new Helmet();
 
-Archer robin = new Archer("Robin", "Villano");
+Archer robin = new Archer("Robin", "Villano", 3);
 robin.Bow = new Bow();
 robin.Helmet = new Helmet();
 
-Knight garen = new Knight("Garen", "Villano");
+Knight garen = new Knight("Garen", "Villano", 1);
 garen.Sword = new Sword();
 garen.Shield = new Shield();
 garen.Armor = new Armor();
 
-Dwarf Grimble = new Dwarf("Grimble", "Villano");
+Dwarf Grimble = new Dwarf("Grimble", "Villano", 2);
 Grimble.Axe = new Axe();
+Grimble.Helmet = new Helmet();
 
-Wizard merlin = new Wizard("Merlin", "Villano");
+Wizard merlin = new Wizard("Merlin", "Villano", 2);
 merlin.Staff = new Staff();
 merlin.SpellsBook = book;
 
 
-Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-Console.WriteLine($"Gandalf attacks Gimli with ⚔️ {gandalf.AttackValue}");
+List<ICharacter> listaCharacters = [];
+listaCharacters.Add(gandalf);
+listaCharacters.Add(gimli);
+listaCharacters.Add(MegaKnight);
+//listaCharacters.Add(apollo);
+//listaCharacters.Add(robin);
+listaCharacters.Add(garen);
+//listaCharacters.Add(Grimble);
+listaCharacters.Add(merlin);
 
-gimli.ReceiveAttack(gandalf.AttackValue);
-
-Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-
-gimli.Cure();
-
-Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
+Encounter encuentro = new Encounter(listaCharacters);
+encuentro.DoEncounter();
 

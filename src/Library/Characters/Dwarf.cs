@@ -6,10 +6,11 @@ public class Dwarf : ICharacter
 
     private List<IItem> items = new List<IItem>();
 
-    public Dwarf(string name, string role)
+    public Dwarf(string name, string role, int vp = 0)
     {
         this.Name = name;
         this.Role = role;
+        this.VP = vp;
         this.AddItem(new Axe());
         this.AddItem(new Helmet());
     }
@@ -20,7 +21,8 @@ public class Dwarf : ICharacter
     
     public int VP { get; set; }
     
-public Axe Axe { get; set; }
+    
+    public Axe Axe { get; set; }
 
     public Shield Shield { get; set; }
 
@@ -77,6 +79,10 @@ public Axe Axe { get; set; }
         if (this.DefenseValue < power)
         {
             this.Health -= power - this.DefenseValue;
+        }
+        else
+        {
+            this.health -= 1;
         }
     }
 
